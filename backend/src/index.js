@@ -4,7 +4,9 @@ const app = express();
 
 app.use(express.json());
 
-// routes here i am adding
+// routes here i am adding and will keep adding as i add more controller 
+/* and routers.
+*/
 const tenantRoutes = require("./routes/tenantRoutes");
 app.use("/api/tenants", tenantRoutes);
 
@@ -13,6 +15,9 @@ app.use("/api/customers", customerRoutes);
 
 const productRoutes = require("./routes/productRoutes");
 app.use("/api/products", productRoutes);
+
+const orderRoutes = require("./routes/orderRoutes");
+app.use("/api/orders", orderRoutes);
 
 
 app.get("/health", (req, res) => {
