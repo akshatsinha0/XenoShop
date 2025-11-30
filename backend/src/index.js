@@ -19,6 +19,9 @@ app.use("/api/products", productRoutes);
 const orderRoutes = require("./routes/orderRoutes");
 app.use("/api/orders", orderRoutes);
 
+const shopifyRoutes = require("./routes/shopifyRoutes");
+app.use("/api/shopify", shopifyRoutes);
+
 
 app.get("/health", (req, res) => {
   res.json({ status: "ok", service: "xenoshop-backend" });
