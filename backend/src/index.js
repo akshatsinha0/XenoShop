@@ -8,6 +8,9 @@ app.use(express.json());
 const tenantRoutes = require("./routes/tenantRoutes");
 app.use("/api/tenants", tenantRoutes);
 
+const customerRoutes = require("./routes/customerRoutes");
+app.use("/api/customers", customerRoutes);
+
 app.get("/health", (req, res) => {
   res.json({ status: "ok", service: "xenoshop-backend" });
 });
