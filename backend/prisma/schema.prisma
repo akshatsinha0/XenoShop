@@ -19,9 +19,23 @@ model Tenant {
   shopDomain  String?   // example: myshop.myshopify.com
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  customers   Customer[]
 
   // future relations (not added yet)
   // customers  Customer[]
   // products   Product[]
   // orders     Order[]
+}
+
+model Customer {
+  id         String   @id @default(uuid())
+  tenantId   String
+  email      String   @unique
+  firstName  String?
+  lastName   String?
+  phone      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 }
