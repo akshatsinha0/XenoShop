@@ -20,6 +20,7 @@ model Tenant {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   customers   Customer[]
+  products    Product[]
 
   // future relations (not added yet)
   // customers  Customer[]
@@ -38,4 +39,18 @@ model Customer {
   updatedAt  DateTime @updatedAt
 
   tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id               String    @id @default(uuid())
+  tenantId         String
+  title            String
+  description      String?
+  price            Float
+  sku              String?
+  shopifyProductId String?   // ID from Shopify API
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  tenant           Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 }
