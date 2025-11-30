@@ -11,6 +11,10 @@ app.use("/api/tenants", tenantRoutes);
 const customerRoutes = require("./routes/customerRoutes");
 app.use("/api/customers", customerRoutes);
 
+const productRoutes = require("./routes/productRoutes");
+app.use("/api/products", productRoutes);
+
+
 app.get("/health", (req, res) => {
   res.json({ status: "ok", service: "xenoshop-backend" });
 });
