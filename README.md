@@ -249,10 +249,6 @@ iv. Single currency display (INR)
 - Add email notifications
 - Multi-currency support
 
-## XI. License
-
-MIT
-
 ---
 
 Built for Xeno FDE Internship Assignment 2025
