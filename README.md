@@ -2,38 +2,38 @@
 
 A full-stack application that enables enterprise retailers to onboard, integrate, and analyze their Shopify store data with multi-tenant support.
 
-## 🚀 Features
+## I. Features
 
 ### Data Ingestion
-- **Multi-tenant architecture** - Isolated data per store using tenant identifiers
-- **Shopify API integration** - Sync customers, products, and orders
-- **Webhooks support** - Real-time data sync via Shopify webhooks
-- **Scheduled sync** - Automated hourly data synchronization
+- Multi-tenant architecture - Isolated data per store using tenant identifiers
+- Shopify API integration - Sync customers, products, and orders
+- Webhooks support - Real-time data sync via Shopify webhooks
+- Scheduled sync - Automated hourly data synchronization
 
 ### Insights Dashboard
-- **Authentication** - JWT-based email authentication
-- **Key Metrics** - Total customers, orders, revenue, avg order value
-- **Revenue Trends** - 30-day line chart visualization
-- **Orders by Date** - Bar chart with date range filtering
-- **Top Customers** - Top 5 customers by total spend
-- **Product Performance** - Top products by revenue
+- Authentication - JWT-based email authentication
+- Key Metrics - Total customers, orders, revenue, avg order value
+- Revenue Trends - 30-day line chart visualization
+- Orders by Date - Bar chart with date range filtering
+- Top Customers - Top 5 customers by total spend
+- Product Performance - Top products by revenue
 
-## 🏗️ Architecture
+## II. Architecture
 
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   React App     │────▶│  Express API    │────▶│   PostgreSQL    │
-│   (Frontend)    │     │   (Backend)     │     │   (Database)    │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-                               │
-                               ▼
-                        ┌─────────────────┐
-                        │  Shopify API    │
-                        │  (External)     │
-                        └─────────────────┘
++-------------------+     +-------------------+     +-------------------+
+|   React App       |---->|  Express API      |---->|   PostgreSQL      |
+|   (Frontend)      |     |   (Backend)       |     |   (Database)      |
++-------------------+     +-------------------+     +-------------------+
+                                 |
+                                 v
+                          +-------------------+
+                          |  Shopify API      |
+                          |  (External)       |
+                          +-------------------+
 ```
 
-## 📦 Tech Stack
+## III. Tech Stack
 
 | Layer | Technology |
 |-------|------------|
@@ -43,20 +43,20 @@ A full-stack application that enables enterprise retailers to onboard, integrate
 | ORM | Prisma |
 | Auth | JWT, bcryptjs |
 
-## 🛠️ Setup Instructions
+## IV. Setup Instructions
 
 ### Prerequisites
 - Node.js 18+
 - PostgreSQL 14+
 - Shopify Development Store
 
-### 1. Clone Repository
+### IV.i Clone Repository
 ```bash
 git clone https://github.com/akshatsinha0/XenoShop.git
 cd XenoShop
 ```
 
-### 2. Backend Setup
+### IV.ii Backend Setup
 ```bash
 cd backend
 npm install
@@ -75,7 +75,7 @@ npx prisma generate
 npm run dev
 ```
 
-### 3. Frontend Setup
+### IV.iii Frontend Setup
 ```bash
 cd frontend
 npm install
@@ -87,16 +87,16 @@ echo "VITE_API_URL=http://localhost:4000/api" > .env
 npm run dev
 ```
 
-## 📡 API Endpoints
+## V. API Endpoints
 
-### Authentication
+### V.i Authentication
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/auth/register` | Register new user |
 | POST | `/api/auth/login` | Login user |
 | GET | `/api/auth/profile` | Get current user profile |
 
-### Tenants
+### V.ii Tenants
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/tenants` | Create tenant |
@@ -104,7 +104,7 @@ npm run dev
 | GET | `/api/tenants/:id` | Get tenant by ID |
 | PUT | `/api/tenants/:id/shopify` | Update Shopify credentials |
 
-### Shopify Sync
+### V.iii Shopify Sync
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/api/shopify/sync/:tenantId` | Sync all Shopify data |
@@ -112,7 +112,7 @@ npm run dev
 | POST | `/api/shopify/products/:tenantId` | Sync products only |
 | POST | `/api/shopify/orders/:tenantId` | Sync orders only |
 
-### Analytics
+### V.iv Analytics
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/analytics/dashboard/:tenantId` | Dashboard metrics |
@@ -121,14 +121,14 @@ npm run dev
 | GET | `/api/analytics/revenue-trends/:tenantId` | Revenue trends |
 | GET | `/api/analytics/product-performance/:tenantId` | Product metrics |
 
-### Webhooks (for Shopify)
+### V.v Webhooks (for Shopify)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | POST | `/webhooks/shopify/customers` | Customer webhook |
 | POST | `/webhooks/shopify/orders` | Order webhook |
 | POST | `/webhooks/shopify/products` | Product webhook |
 
-## 🗄️ Database Schema
+## VI. Database Schema
 
 ```prisma
 model Tenant {
@@ -193,14 +193,14 @@ model OrderItem {
 }
 ```
 
-## 🔐 Environment Variables
+## VII. Environment Variables
 
 ### Backend (.env)
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/xenodb"
 PORT=4000
 JWT_SECRET="your-secret-key"
-FRONTEND_URL="http://localhost:3000"
+FRONTEND_URL="http://localhost:5173"
 ENABLE_SCHEDULER="false"
 ```
 
@@ -209,47 +209,47 @@ ENABLE_SCHEDULER="false"
 VITE_API_URL=http://localhost:4000/api
 ```
 
-## 📋 Assumptions
+## VIII. Assumptions
 
-1. Each Shopify store maps to one tenant
-2. Users can belong to one tenant at a time
-3. Shopify API version 2024-10 is used
-4. Orders without customer email use placeholder emails
-5. Product price is taken from first variant
+i. Each Shopify store maps to one tenant
+ii. Users can belong to one tenant at a time
+iii. Shopify API version 2024-10 is used
+iv. Orders without customer email use placeholder emails
+v. Product price is taken from first variant
 
-## 🚧 Known Limitations
+## IX. Known Limitations
 
-1. No OAuth flow for Shopify - requires manual token setup
-2. Webhook signature verification needs SHOPIFY_WEBHOOK_SECRET
-3. No pagination for large datasets
-4. Single currency display (INR)
+i. No OAuth flow for Shopify - requires manual token setup
+ii. Webhook signature verification needs SHOPIFY_WEBHOOK_SECRET
+iii. No pagination for large datasets
+iv. Single currency display (INR)
 
-## 🔮 Next Steps to Production
+## X. Next Steps to Production
 
-1. **Security**
-   - Implement Shopify OAuth flow
-   - Add rate limiting
-   - Enable webhook signature verification
-   - Use environment-specific secrets
+### X.i Security
+- Implement Shopify OAuth flow
+- Add rate limiting
+- Enable webhook signature verification
+- Use environment-specific secrets
 
-2. **Scalability**
-   - Add Redis for caching
-   - Implement job queue (Bull/RabbitMQ) for async sync
-   - Add database connection pooling
-   - Implement pagination
+### X.ii Scalability
+- Add Redis for caching
+- Implement job queue (Bull/RabbitMQ) for async sync
+- Add database connection pooling
+- Implement pagination
 
-3. **Monitoring**
-   - Add logging service (Winston/Pino)
-   - Implement error tracking (Sentry)
-   - Add APM monitoring
+### X.iii Monitoring
+- Add logging service (Winston/Pino)
+- Implement error tracking (Sentry)
+- Add APM monitoring
 
-4. **Features**
-   - Add more analytics (cohort analysis, RFM)
-   - Implement data export
-   - Add email notifications
-   - Multi-currency support
+### X.iv Features
+- Add more analytics (cohort analysis, RFM)
+- Implement data export
+- Add email notifications
+- Multi-currency support
 
-## 📄 License
+## XI. License
 
 MIT
 
