@@ -1,17 +1,55 @@
 :root {
+  /* Cream Shades */
+  --color-cream: #FFFDD0;
+  --color-cream-light: #FFFEF5;
+  --color-vanilla-cream: #F3E5AB;
+  --color-buttercream: #F9E4B7;
   --color-ivory: #FFFFF0;
-  --color-manuscript: #F5F5DC;
+  --color-linen: #FAF0E6;
+  --color-eggshell: #F0EAD6;
+  --color-champagne: #F7E7CE;
+  --color-cornsilk: #FFF8DC;
+  --color-papaya-whip: #FFEFD5;
+  --color-old-lace: #FDF5E6;
+  --color-seashell: #FFF5EE;
+  --color-flax: #EEDC82;
+  --color-wheat: #F5DEB3;
+  --color-bisque: #FFE4C4;
+  --color-moccasin: #FFE4B5;
+  --color-navajo-white: #FFDEAD;
+  --color-peach-puff: #FFDAB9;
+  --color-almond: #EFDECD;
+  --color-swiss-coffee: #DDD5D0;
+  
+  /* Tan Shades */
+  --color-tan: #D2B48C;
+  --color-tan-light: #E6D5B8;
+  --color-sand: #C2B280;
+  --color-khaki: #C3B091;
+  --color-camel: #C19A6B;
+  --color-latte: #C8A882;
+  --color-taupe: #8B8589;
+  --color-bone: #E3DAC9;
+  --color-oat: #B8A888;
+  
+  /* Coffee & Brown */
   --color-coffee: #6F4E37;
   --color-coffee-light: #8B7355;
+  --color-hazelnut: #8E7618;
+  --color-cookie: #D2691E;
+  
+  /* Accent Colors */
+  --color-maroon: #800000;
+  --color-maroon-light: #A52A2A;
+  --color-pink-silk: #FFB6C1;
+  --color-error: #8B0000;
+  
+  /* Neutrals */
   --color-grey-light: #E8E8E8;
   --color-grey: #808080;
   --color-grey-dark: #4A4A4A;
   --color-black: #1A1A1A;
   --color-white: #FFFFFF;
-  --color-maroon: #800000;
-  --color-maroon-light: #A52A2A;
-  --color-pink-silk: #FFB6C1;
-  --color-error: #8B0000;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,7 +58,7 @@ body {
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  background: var(--color-ivory);
+  background: var(--color-cream-light);
   color: var(--color-black);
 }
 
@@ -30,8 +68,9 @@ body {
   align-items: center;
   height: 100vh;
   font-size: 1.2rem;
-  color: var(--color-grey-dark);
+  color: var(--color-coffee);
   font-weight: 500;
+  background: var(--color-linen);
 }
 
 /* Auth Pages */
@@ -44,7 +83,7 @@ body {
 }
 
 .auth-card {
-  background: var(--color-white);
+  background: var(--color-cream-light);
   padding: 2.5rem;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   width: 100%;
@@ -78,10 +117,10 @@ body {
 .auth-card input,
 .auth-card select {
   padding: 0.875rem;
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-tan-light);
   font-family: "Work Sans", sans-serif;
   font-size: 1rem;
-  background: var(--color-manuscript);
+  background: var(--color-ivory);
   color: var(--color-black);
   transition: border-color 0.2s;
 }
@@ -109,7 +148,7 @@ body {
 }
 
 .auth-card button:disabled {
-  background: var(--color-grey);
+  background: var(--color-taupe);
   cursor: not-allowed;
 }
 
@@ -142,17 +181,17 @@ body {
 /* Dashboard */
 .dashboard {
   min-height: 100vh;
-  background: var(--color-ivory);
+  background: linear-gradient(180deg, var(--color-linen) 0%, var(--color-cream-light) 50%, var(--color-eggshell) 100%);
 }
 
 .dashboard header {
-  background: var(--color-white);
+  background: var(--color-ivory);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border-bottom: 2px solid var(--color-coffee);
+  border-bottom: 2px solid var(--color-tan);
 }
 
 .dashboard header h1 {
@@ -169,7 +208,7 @@ body {
 
 .tenant-name {
   background: var(--color-coffee);
-  color: var(--color-white);
+  color: var(--color-cream-light);
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -190,12 +229,12 @@ body {
 }
 
 .sync-btn:disabled {
-  background: var(--color-grey);
+  background: var(--color-taupe);
 }
 
 .logout-btn {
   background: var(--color-black);
-  color: var(--color-white);
+  color: var(--color-cream-light);
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -208,7 +247,7 @@ body {
 }
 
 .user-email {
-  color: var(--color-grey-dark);
+  color: var(--color-coffee);
   font-size: 0.875rem;
 }
 
@@ -221,14 +260,29 @@ body {
 }
 
 .metric-card {
-  background: var(--color-white);
+  background: linear-gradient(135deg, var(--color-buttercream) 0%, var(--color-vanilla-cream) 100%);
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border-left: 4px solid var(--color-coffee);
+  border-left: 4px solid var(--color-camel);
+}
+
+.metric-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--color-champagne) 0%, var(--color-papaya-whip) 100%);
+  border-left-color: var(--color-tan);
+}
+
+.metric-card:nth-child(3) {
+  background: linear-gradient(135deg, var(--color-bisque) 0%, var(--color-peach-puff) 100%);
+  border-left-color: var(--color-coffee-light);
+}
+
+.metric-card:nth-child(4) {
+  background: linear-gradient(135deg, var(--color-wheat) 0%, var(--color-moccasin) 100%);
+  border-left-color: var(--color-cookie);
 }
 
 .metric-card h3 {
-  color: var(--color-grey-dark);
+  color: var(--color-coffee);
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
@@ -251,9 +305,10 @@ body {
 }
 
 .chart-card {
-  background: var(--color-white);
+  background: linear-gradient(180deg, var(--color-ivory) 0%, var(--color-old-lace) 100%);
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-top: 3px solid var(--color-tan-light);
 }
 
 .chart-card h3 {
@@ -271,15 +326,15 @@ body {
 
 .date-filter input {
   padding: 0.5rem;
-  border: 1px solid var(--color-grey-light);
+  border: 1px solid var(--color-tan-light);
   font-family: "Work Sans", sans-serif;
-  background: var(--color-manuscript);
+  background: var(--color-cream);
 }
 
 .date-filter button {
   padding: 0.5rem 1rem;
   background: var(--color-coffee);
-  color: var(--color-white);
+  color: var(--color-cream-light);
   border: none;
   cursor: pointer;
   font-family: "Work Sans", sans-serif;
@@ -295,7 +350,7 @@ body {
 }
 
 .table-card {
-  background: var(--color-white);
+  background: linear-gradient(180deg, var(--color-seashell) 0%, var(--color-almond) 50%, var(--color-bone) 100%);
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   overflow-x: auto;
@@ -317,7 +372,7 @@ body {
 .table-card td {
   padding: 0.75rem;
   text-align: left;
-  border-bottom: 1px solid var(--color-grey-light);
+  border-bottom: 1px solid var(--color-tan-light);
 }
 
 .table-card th {
@@ -326,18 +381,20 @@ body {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  background: var(--color-navajo-white);
 }
 
 .table-card td {
   color: var(--color-black);
+  background: var(--color-cream-light);
 }
 
 .table-card td small {
   color: var(--color-grey);
 }
 
-.table-card tr:hover {
-  background: var(--color-manuscript);
+.table-card tr:hover td {
+  background: var(--color-cornsilk);
 }
 
 /* No Tenant */
@@ -347,7 +404,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 60vh;
-  color: var(--color-grey-dark);
+  color: var(--color-coffee);
+  background: var(--color-linen);
 }
 
 .no-tenant h2 {
