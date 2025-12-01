@@ -33,6 +33,10 @@ A full-stack application that enables enterprise retailers to onboard, integrate
                           +-------------------+
 ```
 
+### High-Level Design Diagram
+
+![High-Level Design](./images/HLD.png)
+
 ## III. Tech Stack
 
 | Layer | Technology |
