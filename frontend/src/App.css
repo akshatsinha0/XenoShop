@@ -300,22 +300,18 @@ body {
   background: linear-gradient(135deg, var(--color-buttercream) 0%, var(--color-vanilla-cream) 100%);
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  border-left: 4px solid var(--color-camel);
 }
 
 .metric-card:nth-child(2) {
   background: linear-gradient(135deg, var(--color-champagne) 0%, var(--color-papaya-whip) 100%);
-  border-left-color: var(--color-tan);
 }
 
 .metric-card:nth-child(3) {
   background: linear-gradient(135deg, var(--color-bisque) 0%, var(--color-peach-puff) 100%);
-  border-left-color: var(--color-coffee-light);
 }
 
 .metric-card:nth-child(4) {
   background: linear-gradient(135deg, var(--color-wheat) 0%, var(--color-moccasin) 100%);
-  border-left-color: var(--color-cookie);
 }
 
 .metric-card h3 {
