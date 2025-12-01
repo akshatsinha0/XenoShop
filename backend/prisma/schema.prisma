@@ -19,6 +19,19 @@ model Tenant {
   customers   Customer[]
   products    Product[]
   orders      Order[]
+  users       User[]
+}
+
+model User {
+  id         String    @id @default(uuid())
+  email      String    @unique
+  password   String
+  name       String?
+  tenantId   String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  tenant     Tenant?   @relation(fields: [tenantId], references: [id], onDelete: SetNull)
 }
 
 model Customer {
@@ -47,6 +60,8 @@ model Product {
 
   tenant           Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   orderItems       OrderItem[]
+
+  @@unique([tenantId, shopifyProductId])
 }
 
 model Order {
