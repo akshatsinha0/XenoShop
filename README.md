@@ -2,6 +2,12 @@
 
 A full-stack application that enables enterprise retailers to onboard, integrate, and analyze their Shopify store data with multi-tenant support.
 
+## Live Deployment
+
+- **Frontend:** [https://xeno-shop.vercel.app](https://xeno-shop.vercel.app)
+- **Backend API:** [https://xenoshop-backend.onrender.com](https://xenoshop-backend.onrender.com)
+- **API Health Check:** [https://xenoshop-backend.onrender.com/health](https://xenoshop-backend.onrender.com/health)
+
 ## I. Features
 
 ### Data Ingestion
