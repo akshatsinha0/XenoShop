@@ -54,6 +54,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
@@ -67,6 +72,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
   font-size: 1.2rem;
   color: var(--color-coffee);
   font-weight: 500;
@@ -79,6 +85,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
   background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-light) 50%, var(--color-coffee) 100%);
 }
 
@@ -123,6 +131,7 @@ body {
   background: var(--color-ivory);
   color: var(--color-black);
   transition: border-color 0.2s;
+  width: 100%;
 }
 
 .auth-card input:focus,
@@ -131,7 +140,7 @@ body {
   border-color: var(--color-coffee);
 }
 
-.auth-card button {
+.auth-card form > button {
   padding: 0.875rem;
   background: linear-gradient(135deg, var(--color-maroon) 0%, var(--color-maroon-light) 100%);
   color: var(--color-white);
@@ -143,11 +152,11 @@ body {
   transition: opacity 0.2s;
 }
 
-.auth-card button:hover {
+.auth-card form > button:hover {
   opacity: 0.9;
 }
 
-.auth-card button:disabled {
+.auth-card form > button:disabled {
   background: var(--color-taupe);
   cursor: not-allowed;
 }
@@ -168,6 +177,35 @@ body {
   text-decoration: underline;
 }
 
+/* Password Field with Toggle */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  padding-right: 3rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-grey-dark);
+  transition: color 0.2s;
+}
+
+.password-toggle:hover {
+  color: var(--color-coffee);
+}
+
 .error-msg {
   background: var(--color-pink-silk);
   color: var(--color-error);
@@ -181,6 +219,7 @@ body {
 /* Dashboard */
 .dashboard {
   min-height: 100vh;
+  width: 100%;
   background: linear-gradient(180deg, var(--color-linen) 0%, var(--color-cream-light) 50%, var(--color-eggshell) 100%);
 }
 
@@ -190,8 +229,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border-bottom: 2px solid var(--color-tan);
+  width: 100%;
 }
 
 .dashboard header h1 {
@@ -204,6 +246,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .tenant-name {
@@ -254,9 +297,10 @@ body {
 /* Metrics Grid */
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   padding: 2rem;
+  width: 100%;
 }
 
 .metric-card {
@@ -299,9 +343,10 @@ body {
 /* Charts Section */
 .charts-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 0 2rem;
+  width: 100%;
 }
 
 .chart-card {
@@ -322,13 +367,24 @@ body {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .date-filter input {
   padding: 0.5rem;
-  border: 1px solid var(--color-tan-light);
+  border: 1px solid var(--color-tan);
   font-family: "Work Sans", sans-serif;
   background: var(--color-cream);
+  color: var(--color-grey-dark);
+  min-width: 140px;
+}
+
+.date-filter input::placeholder {
+  color: var(--color-grey-dark);
+}
+
+.date-filter input::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
 }
 
 .date-filter button {
@@ -344,9 +400,10 @@ body {
 /* Tables Section */
 .tables-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 2rem;
+  width: 100%;
 }
 
 .table-card {
@@ -403,7 +460,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
+  height: calc(100vh - 80px);
+  width: 100%;
   color: var(--color-coffee);
   background: var(--color-linen);
 }
@@ -413,12 +471,47 @@ body {
   color: var(--color-maroon);
 }
 
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
   .charts-section,
   .tables-section {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 600px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard header {
+    padding: 1rem;
+  }
+  
+  .dashboard header h1 {
+    font-size: 1.25rem;
+  }
+  
   .header-actions {
-    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .metrics-grid,
+  .charts-section,
+  .tables-section {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+    margin: 1rem;
   }
 }
