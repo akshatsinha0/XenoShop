@@ -1,9 +1,11 @@
 # Demo script - personal notes
 demo-script.tex
+XenoShopDemo.pdf
 *.aux
 *.log
 *.out
 *.toc
+*.pdf
 
 # OS files
 .DS_Store
