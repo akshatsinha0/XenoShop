@@ -1,0 +1,15 @@
+# Demo script - personal notes
+demo-script.tex
+*.aux
+*.log
+*.out
+*.toc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
