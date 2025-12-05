@@ -2,6 +2,10 @@
 
 A full-stack application that enables enterprise retailers to onboard, integrate, and analyze their Shopify store data with multi-tenant support.
 
+## Important Security Notice
+
+**Regarding Demo Video:** During the video demonstration, the Shopify access token was inadvertently revealed. For security purposes, the Shopify app has been uninstalled and a new access token has been generated. The exposed token is no longer valid and cannot be used to access the Shopify store. All credentials shown in the demo video have been rotated.
+
 ## Live Deployment
 
 - **Frontend:** [https://xeno-shop.vercel.app](https://xeno-shop.vercel.app)
